@@ -12,3 +12,15 @@ jobs:
     steps:
       - name: first step
         run: echo "Hello! Your first workflow is running"
+      
+      - name: show github context
+        run: |
+          echo "Respository: ${{ github.repository }}"  
+          echo "Event: ${{ github.event_name }}"  
+          echo "Actor: ${{ github.actor }}"  
+      
+      - name: checkout code
+        uses: actions/checkout@v4
+        
+      - name: List Files
+        run: ls -la  
