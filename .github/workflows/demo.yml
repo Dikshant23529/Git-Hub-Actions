@@ -1,0 +1,14 @@
+name: Demo WorkFlow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: 
+
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: first step
+        run: echo "Hello! Your first workflow is running"
