@@ -6,7 +6,7 @@ on:
   
   # Pull requests to main
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
   
   # Schedule (runs every day at midnight UTC)
   schedule:

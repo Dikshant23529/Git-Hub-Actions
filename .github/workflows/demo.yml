@@ -2,7 +2,7 @@ name: Demo WorkFlow
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
 
 jobs:
   my-first-job:
