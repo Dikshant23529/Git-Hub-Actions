@@ -1,0 +1,26 @@
+name: Workflow Dispatch
+
+on:
+    workflow_dispatch:
+      inputs:
+        enviorment:
+            description: select enviorment
+            default: 'dev'
+            type: choice
+            options: 
+                - dev
+                - prod
+        coustom:
+            description: this is custom testing        
+            default: 'cust'
+            type: choice
+            options: 
+                - dev
+                - cust
+
+jobs:
+    test-job:
+        runs-on: ubuntu:latest
+        steps:
+            - run: |
+                echo "I am manual trigreed the workflow"      
