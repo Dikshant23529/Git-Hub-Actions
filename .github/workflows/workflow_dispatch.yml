@@ -10,7 +10,9 @@ on:
             options: 
                 - dev
                 - prod
-        coustom:
+
+
+        version:
             description: this is custom testing        
             default: 'cust'
             type: choice
