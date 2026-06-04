@@ -1,0 +1,26 @@
+name: Quiz Workflow 3
+
+on: 
+    workflow_dispatch:
+        inputs:
+            username:
+                description: "Provide your username"
+                default: "Student"
+                type: string
+                required: true
+
+            
+            difficulty:
+                description: "Select the difficulty level"
+                type: choice
+                required: true
+                options:
+                    - easy
+                    - medium
+                    - hard
+
+jobs:
+    great:
+        runs-on: ubunut-latest
+        steps:
+            - run: echo "Hello"                    

@@ -27,3 +27,24 @@ job-alpha prints: "I am the first job"
 job-beta prints: "I am the second job"
 
 Important: Both jobs should run at the same time (parallel).
+
+
+Question 3: Workflow Dispatch with Inputs
+Write a workflow that:
+
+Is named "Quiz Workflow 3"
+
+Triggers manually
+
+Has two inputs:
+
+username (string input, required, default: "Student")
+
+difficulty (choice input, required, options: easy, medium, hard)
+
+Has one job called greet
+
+Steps:
+
+Print: "Hello, [username]!" (using the input value)
+Print: "You selected [difficulty] difficulty" (using the input value)

@@ -2,7 +2,7 @@ name: Quiz workflow 1
 
 on:
     push:
-        branches: [main]
+        branches: [dev]
 
 jobs:
     say-hello:
