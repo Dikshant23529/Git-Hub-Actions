@@ -48,3 +48,69 @@ Steps:
 
 Print: "Hello, [username]!" (using the input value)
 Print: "You selected [difficulty] difficulty" (using the input value)
+
+
+Question 4: Find the Errors
+Below is a workflow with 4 errors. Find and list them:
+
+name: Buggy Workflow
+'''
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    test-job:
+        runs-on: ubuntu:latest
+        steps:
+            - name: Test step
+              run: echo "Testing"
+    
+    build-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build step
+              run: echo "Building"
+
+on:
+    workflow_dispatch:
+
+'''
+
+
+name: Complete Me
+
+on:                                # What goes here?
+  workflow_dispatch:
+    inputs:                      # What keyword for inputs?
+      my_input:
+        description: 'Test input'
+        required: true
+        default: 'default value'  # What keyword for default?
+        type: string
+
+jobs:
+  my-job:
+    runs-on: ubuntu:latest            # Valid Ubuntu runner
+    steps:
+      - run: echo "${{ github.event.inputs.my_input }}"  # How to access input?
+
+
+
+Question 7: Real-World Scenario
+Create a workflow that simulates a deployment system:
+
+Name: "Deployment Pipeline"
+
+Manual trigger with:
+
+environment (choice: staging, production, required)
+
+version (string, required, default: "1.0.0")
+
+Two jobs:
+
+build (runs first, prints: "Building version [version]")
+
+deploy (runs AFTER build, prints: "Deploying to [environment]")      

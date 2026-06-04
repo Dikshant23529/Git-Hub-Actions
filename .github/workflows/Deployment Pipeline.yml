@@ -1,0 +1,35 @@
+on:
+
+    workflow_dispatch:
+
+        inputs:
+        
+            enviorment:
+                description: 'Select the deployment enviorment'
+                required: true
+                default: 'staging'
+                type: choice
+                options:
+                    - production
+                    - staging
+
+            version:
+                description: 'Provide the version of the app'
+                required: true
+                default: '1.0.0'
+                type: string
+
+jobs:
+    
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                 echo "Building version ${{github.event.inputs.version}}"
+                 
+    
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps: 
+            - run: echo "Deploying to ${{github.event.inputs.enviorment}}"             
