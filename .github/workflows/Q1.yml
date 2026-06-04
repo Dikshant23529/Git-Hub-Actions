@@ -1,0 +1,11 @@
+name: Quiz workflow 1
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    say-hello:
+        runs-on: ubuuntu-latest
+        steps: 
+            - run: echo "Quiz completed successfully"

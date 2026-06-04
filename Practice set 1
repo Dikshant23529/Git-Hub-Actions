@@ -1,0 +1,10 @@
+Question 1: Basic Structure
+Write a complete workflow that:
+
+Is named "Quiz Workflow 1"
+
+Triggers on push to the main branch
+
+Has one job called say-hello running on Ubuntu
+
+Has a step that prints: "Quiz completed successfully!
