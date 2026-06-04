@@ -8,3 +8,22 @@ Triggers on push to the main branch
 Has one job called say-hello running on Ubuntu
 
 Has a step that prints: "Quiz completed successfully!
+
+
+
+Question 2: Multiple Jobs
+Write a workflow that:
+
+Is named "Quiz Workflow 2"
+
+Triggers manually (workflow_dispatch)
+
+Has TWO jobs: job-alpha and job-beta
+
+Both run on Ubuntu
+
+job-alpha prints: "I am the first job"
+
+job-beta prints: "I am the second job"
+
+Important: Both jobs should run at the same time (parallel).
