@@ -1,0 +1,30 @@
+name: condtional workflow
+
+on:
+    push:
+        branches: main
+
+jobs:
+    conditional-steps:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step 1 - awalays run step
+              run: echo "I will run always"
+              
+            - name: step 2 - might fail
+              run: | 
+                echo "Failed"    
+                exit 1
+              continue-on-error: true
+            
+            - name: step 3 - run only on sucees
+              if: success()
+              run: echo "I run on success steps"
+            
+            - name: step 4 - run on failuer
+              if: failure()
+              run: echo "I run on failuer"
+              
+            - name: setp 5 - always run step
+              if: always()
+              run: echo " I will run always"    
