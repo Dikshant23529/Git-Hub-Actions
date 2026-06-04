@@ -22,7 +22,7 @@ on:
 
 jobs:
     test-job:
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps:
             - run: |
                 echo "I am manual trigreed the workflow"      
