@@ -19,7 +19,7 @@ jobs:
               run: echo "All previous steps has been passed"
               
             - name: step3
-              if: failure()
+              if: steps.step1id.outcome == 'failure'
               run: echo "execute on failed step"
               
             - name: step4
