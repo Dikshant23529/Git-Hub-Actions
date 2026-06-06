@@ -15,7 +15,7 @@ jobs:
               continue-on-error: true  
 
             - name: step2
-              if: success()
+              if: steps.step1id.outcome == 'success'
               run: echo "All previous steps has been passed"
               
             - name: step3
