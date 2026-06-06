@@ -8,6 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         steps: 
             - name: step1
+              id: step1id  
               run: |
                 echo "I'm step"          
                 exit 1
