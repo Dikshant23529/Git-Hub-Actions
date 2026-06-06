@@ -1,0 +1,36 @@
+name: complex condition
+ 
+on:
+    workflow_dispatch:
+
+
+jobs:
+    complex-condition:
+        runs-on: ubuntu-latest
+        steps:
+            - name: always run
+              run: echo "I'll always run"
+              
+            - name: run only on main branch
+              if: github.ref == 'ref/heads/main'
+              run: echo "we're on head branch"
+              
+            - name: run only on dev branch
+              if: github.ref == 'ref/heads/dev'
+              run: echo "we're on dev branch"
+              
+            - name: run only if push on dev branch
+              if: github.event_name == 'push'
+              run: echo "Trigreed on push"  
+
+            - name: run only if manual is trigreed
+              if: github.event_name == 'workflow_dispatch'
+              run: echo "run on manual trigger"
+              
+            - name: use of the multiple condition
+              if: github.action_ref == 'main' && github.event_name == 'workflow_dispatch'
+              run: echo "run on multiple condition"
+              
+            - name: use of the mutiple condiation 2
+              if: github.action_ref == 'dev' && github.event_name == 'push'
+              run: echo "run on push event on dev"  
