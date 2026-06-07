@@ -48,7 +48,7 @@ jobs:
     Deploy:
         needs: [Build, Test]
         runs-on: ubuntu-latest
-        if: github.action == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         steps:
             - name: Deploy the code
               if: inputs.enviorment == 'DEV'
