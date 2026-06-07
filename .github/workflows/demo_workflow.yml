@@ -1,0 +1,36 @@
+name: Demo Work Flow
+
+on:
+    push:
+        branches: ['main']
+
+    workflow_dispatch:    
+
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Complie Code
+              run: echo "In this step we'll complie the code"
+
+            - name: Docker Build
+              run: echo "In this Step We'll do Docker Build"
+              
+    Test:
+        needs: [Build]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Unit Test
+              run: echo "In This step we will do unit test"          
+            
+            - name: Integration Test
+              run: echo "In This step we will do Integration Test"          
+              
+
+    Deploy:
+        needs: [Build, Test]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy the code
+              run: echo "Deploying the code"            
