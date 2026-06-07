@@ -4,8 +4,25 @@ on:
     push:
         branches: ['main']
 
-    workflow_dispatch:    
+    workflow_dispatch:
+        inputs:
 
+            enviorment:
+                description: This is enviorment
+                type: choice
+                required: true    
+                default: 'DEV'
+                options:
+                    - DEV
+                    - PROD
+                    - QA
+
+            version:
+                description: This is version
+                type: string
+                required: true    
+                default: 'v-1.0.0'
+        
 
 jobs:
     Build:
@@ -31,6 +48,16 @@ jobs:
     Deploy:
         needs: [Build, Test]
         runs-on: ubuntu-latest
+        if: github.action == 'workflow_dispatch'
         steps:
             - name: Deploy the code
-              run: echo "Deploying the code"            
+              if: inputs.enviorment == 'DEV'
+              run: echo "Deploying the code version ${{inputs.version}} on ${{inputs.enviorment}}"   
+              
+            - name: Deploy the code
+              if: inputs.enviorment == 'PROD'
+              run: echo "Deploying the code version ${{inputs.version}} on ${{inputs.enviorment}}"   
+              
+            - name: Deploy the code
+              if: inputs.enviorment == 'QA'
+              run: echo "Deploying the code version ${{inputs.version}} on ${{inputs.enviorment}}"     
